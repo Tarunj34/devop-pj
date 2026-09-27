@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = "sudhanshu/technova-website"
+        DOCKER_IMAGE = "tarun4642/sdubey"
     }
 
     stages {
@@ -18,9 +18,11 @@ pipeline {
             steps {
                 sh '''
                     set -e
+                    echo "Checking website files..."
                     ls -lh
                     test -s index.html
                     test -s style.css
+                    echo "Website files OK"
                 '''
             }
         }
@@ -29,6 +31,7 @@ pipeline {
             steps {
                 sh '''
                     set -e
+                    echo "Building Docker image..."
                     docker build --no-cache \
                         -t ${DOCKER_IMAGE}:latest .
                 '''
@@ -58,6 +61,7 @@ pipeline {
             steps {
                 sh '''
                     set -e
+                    echo "Pushing ${DOCKER_IMAGE}:latest..."
                     docker push ${DOCKER_IMAGE}:latest
                 '''
             }
@@ -82,9 +86,17 @@ pipeline {
             steps {
                 sh '''
                     set -e
+
+                    echo "Checking container..."
                     docker ps
+
+                    echo "Checking website files..."
                     docker exec cont1 ls -lh /usr/share/nginx/html/
+
+                    echo "Testing website..."
                     curl -f http://localhost:7777
+
+                    echo "Container verification successful!"
                 '''
             }
         }
