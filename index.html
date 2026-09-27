@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>DevOps | Automate. Deploy. Scale.</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Dev<span>Ops</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#tools">Tools</a></li>
+                <li><a href="#process">Process</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+
+            <a href="#tools" class="nav-button">Explore</a>
+
+        </nav>
+    </header>
+
+
+    <!-- Hero -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="badge">
+                ⚡ DEVOPS ENGINEERING
+            </div>
+
+            <h1>
+                Build.
+                <span>Automate.</span>
+                Deploy.
+            </h1>
+
+            <p>
+                DevOps brings development and operations together to
+                build, test, deploy and manage applications faster,
+                reliably and continuously.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#tools" class="primary-btn">
+                    Explore DevOps
+                </a>
+
+                <a href="#process" class="secondary-btn">
+                    How It Works →
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Terminal -->
+        <div class="terminal">
+
+            <div class="terminal-header">
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <p>devops@server:~</p>
+            </div>
+
+            <div class="terminal-body">
+
+                <p>
+                    <span class="green">user@devops</span>:~$
+                    docker build -t app .
+                </p>
+
+                <p class="success">
+                    ✓ Building application...
+                </p>
+
+                <p class="success">
+                    ✓ Image created successfully
+                </p>
+
+                <p>
+                    <span class="green">user@devops</span>:~$
+                    docker run -d -p 80:80 app
+                </p>
+
+                <p class="success">
+                    ✓ Container started
+                </p>
+
+                <p>
+                    <span class="green">user@devops</span>:~$
+                    kubectl get pods
+                </p>
+
+                <p class="blue">
+                    app-pod-7f8d9c → Running
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DevOps Cycle -->
+    <section class="process" id="process">
+
+        <div class="section-title">
+
+            <p>DEVOPS LIFECYCLE</p>
+
+            <h2>
+                From Code to <span>Production</span>
+            </h2>
+
+        </div>
+
+
+        <div class="process-container">
+
+            <div class="process-card">
+                <div class="number">01</div>
+                <h3>Plan</h3>
+                <p>Plan features, tasks and development workflows.</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="process-card">
+                <div class="number">02</div>
+                <h3>Code</h3>
+                <p>Develop and manage application source code.</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="process-card">
+                <div class="number">03</div>
+                <h3>Build</h3>
+                <p>Build applications and create deployable artifacts.</p>
+            </div>
+
+            <div class="arrow">→</div>
+
+            <div class="process-card">
+                <div class="number">04</div>
+                <h3>Deploy</h3>
+                <p>Automatically deploy applications to production.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Tools -->
+    <section class="tools" id="tools">
+
+        <div class="section-title">
+
+            <p>POPULAR TECHNOLOGIES</p>
+
+            <h2>
+                DevOps <span>Toolchain</span>
+            </h2>
+
+        </div>
+
+
+        <div class="tools-grid">
+
+            <div class="tool-card">
+                <div class="tool-icon">GIT</div>
+                <h3>Git</h3>
+                <p>Version Control</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">🐳</div>
+                <h3>Docker</h3>
+                <p>Containerization</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">J</div>
+                <h3>Jenkins</h3>
+                <p>CI/CD Automation</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">☁</div>
+                <h3>AWS</h3>
+                <p>Cloud Computing</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">K8</div>
+                <h3>Kubernetes</h3>
+                <p>Container Orchestration</p>
+            </div>
+
+            <div class="tool-card">
+                <div class="tool-icon">TF</div>
+                <h3>Terraform</h3>
+                <p>Infrastructure as Code</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+
+        <div class="about-content">
+
+            <p>WHY DEVOPS?</p>
+
+            <h2>
+                Faster development.
+                <span>Better operations.</span>
+            </h2>
+
+            <p>
+                DevOps practices help teams automate repetitive tasks,
+                improve collaboration, reduce deployment time and
+                deliver reliable software continuously.
+            </p>
+
+            <div class="stats">
+
+                <div>
+                    <strong>CI/CD</strong>
+                    <span>Continuous Delivery</span>
+                </div>
+
+                <div>
+                    <strong>IaC</strong>
+                    <span>Infrastructure as Code</span>
+                </div>
+
+                <div>
+                    <strong>∞</strong>
+                    <span>Continuous Improvement</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-logo">
+            Dev<span>Ops</span>
+        </div>
+
+        <p>
+            Automate everything. Deploy anything.
+        </p>
+
+        <p>
+            © 2026 DevOps Engineering
+        </p>
+
+    </footer>
+
+</body>
+</html>
