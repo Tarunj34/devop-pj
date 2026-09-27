@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/Tarunj34/project-demo.git'
+                    url: 'https://github.com/Tarunj34/devop-pj.git'
             }
         }
 
@@ -18,9 +18,13 @@ pipeline {
             steps {
                 sh '''
                     set -e
+                    echo "Checking website files..."
                     ls -lh
+
                     test -s index.html
                     test -s style.css
+
+                    echo "Website files found successfully."
                 '''
             }
         }
@@ -29,6 +33,7 @@ pipeline {
             steps {
                 sh '''
                     set -e
+
                     docker build --no-cache \
                         -t ${DOCKER_IMAGE}:latest .
                 '''
@@ -46,6 +51,7 @@ pipeline {
                 ]) {
                     sh '''
                         set -e
+
                         echo "$DOCKER_PASSWORD" | docker login \
                             -u "$DOCKER_USERNAME" \
                             --password-stdin
@@ -58,6 +64,7 @@ pipeline {
             steps {
                 sh '''
                     set -e
+
                     docker push ${DOCKER_IMAGE}:latest
                 '''
             }
@@ -82,8 +89,15 @@ pipeline {
             steps {
                 sh '''
                     set -e
+
+                    echo "Running containers:"
                     docker ps
+
+                    echo "Website files inside container:"
                     docker exec cont1 ls -lh /usr/share/nginx/html/
+
+                    echo "Testing website:"
+                    curl -f http://localhost:7777
                 '''
             }
         }
@@ -92,7 +106,7 @@ pipeline {
     post {
         success {
             echo 'Deployment successful!'
-            echo "Website: http://EC2_PUBLIC_IP:7777"
+            echo 'Website: http://EC2_PUBLIC_IP:7777'
             echo "Docker Image: ${DOCKER_IMAGE}:latest"
         }
 
